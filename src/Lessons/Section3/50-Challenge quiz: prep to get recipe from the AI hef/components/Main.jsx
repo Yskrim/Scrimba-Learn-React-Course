@@ -2,8 +2,27 @@ import React from "react"
 import ClaudeRecipe from "./ClaudeRecipe"
 import IngredientsList from "./IngredientsList"
 
-import RecipeForm from './TestRecipeForm'
-import TestRecipeForm from "./TestRecipeForm"
+/**
+ * Challenge: Get a recipe from the AI!
+ * 
+ * This will be a bit harder of a challenge that will require you
+ * to think critically and synthesize the skills you've been
+ * learning and practicing up to this point.
+ * 
+ * We'll start with a mini-quiz:
+ * 
+ * 1. Think about where the recipe response should live and how you're
+ *    going to make sure it doesn't disappear between each state change in
+ *    the app. (I don't mean between refreshes of your mini-browser.
+ *    You don't need to save this to localStorage or anything more permanent
+ *    than in React's memory for now.)
+ * 
+ *      it should be stored in it's own state, that doesn't have any interference with other states.
+ *  
+ * 
+ * 2. What action from the user should trigger getting the recipe?
+ *      submit of the "getrecipe button" >> function that is being triggeren on the event of click
+ */
 
 export default function Main() {
 
@@ -17,7 +36,6 @@ export default function Main() {
         setRecipeShown(prev => !prev)
     }
 
-
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient")
         setIngredients(prevIngredients => [...prevIngredients, newIngredient])
@@ -25,7 +43,6 @@ export default function Main() {
 
     return (
         <main>
-            <TestRecipeForm />
             <form action={addIngredient} className="add-ingredient-form">
                 <input
                     type="text"
