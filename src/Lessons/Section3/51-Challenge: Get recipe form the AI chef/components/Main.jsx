@@ -27,7 +27,9 @@ import IngredientsList from "./IngredientsList"
 
 export default function Main() {
 
-    const [ingredients, setIngredients] = React.useState([])
+    const [ingredients, setIngredients] = React.useState(
+        ["all the main spices", "pasta", "ground beef", "tomato paste"]
+    )
 
 
     const [recipe, setRecipe] = React.useState("");
@@ -44,7 +46,8 @@ export default function Main() {
         
         const data = await response.json();
         console.log("done!")
-        setRecipe(data.recipe);
+        const prefix = "Sure, I'd be happy to help!"
+        setRecipe(data.recipe.startsWith(prefix) ? data.recipe.slice(prefix.length) : data.recipe);
     }
 
     function addIngredient(formData) {
@@ -71,8 +74,7 @@ export default function Main() {
                     />
             
             }
-            {recipe ? <ClaudeRecipe recipe={recipe}/> : null}
-            
+            {recipe ? <ClaudeRecipe recipe={recipe}/> : null} 
         </main>
     )
 }
