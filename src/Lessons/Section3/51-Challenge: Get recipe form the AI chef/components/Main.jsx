@@ -30,11 +30,24 @@ export default function Main() {
         ["all the main spices", "pasta", "ground beef", "tomato paste"]
     )
 
-    const [recipeShown, setRecipeShown] = React.useState(false);
+
+    const [recipe, setRecipe] = React.useState("");
+
+    async function getRecipe(e) {
+        e.preventDefault();
+        const response = await fetch("http://localhost:3001/api/recipe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(ingredients),
+        });
+        const data = await response.json();
+        setRecipe(data.recipe);
+    }
 
     function showRecipe() {
         setRecipeShown(prev => !prev)
     }
+
 
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient")
@@ -43,6 +56,7 @@ export default function Main() {
 
     return (
         <main>
+            <TestRecipeForm />
             <form action={addIngredient} className="add-ingredient-form">
                 <input
                     type="text"
@@ -55,11 +69,11 @@ export default function Main() {
             {ingredients.length > 0 && 
                 <IngredientsList 
                     ingredients={ingredients}
-                    showRecipe={showRecipe}
+                    getRecipe={getRecipe}
                     />
             
             }
-            {recipeShown ? <ClaudeRecipe /> : null}
+            {recipe ? <ClaudeRecipe recipe={recipe}/> : null}
             
         </main>
     )
