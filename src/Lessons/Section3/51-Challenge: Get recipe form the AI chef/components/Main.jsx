@@ -2,6 +2,7 @@ import React from "react"
 import ClaudeRecipe from "./ClaudeRecipe"
 import IngredientsList from "./IngredientsList"
 
+
 /**
  * Challenge: Get a recipe from the AI!
  * 
@@ -26,28 +27,25 @@ import IngredientsList from "./IngredientsList"
 
 export default function Main() {
 
-    const [ingredients, setIngredients] = React.useState(
-        ["all the main spices", "pasta", "ground beef", "tomato paste"]
-    )
+    const [ingredients, setIngredients] = React.useState([])
 
 
     const [recipe, setRecipe] = React.useState("");
 
-    async function getRecipe(e) {
-        e.preventDefault();
+    async function getRecipe() {
+        setRecipe('loading');
+        console.log("loading")
         const response = await fetch("http://localhost:3001/api/recipe", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(ingredients),
+            body: JSON.stringify({ingredients: [...ingredients]}),
         });
+        
+        
         const data = await response.json();
+        console.log("done!")
         setRecipe(data.recipe);
     }
-
-    function showRecipe() {
-        setRecipeShown(prev => !prev)
-    }
-
 
     function addIngredient(formData) {
         const newIngredient = formData.get("ingredient")
@@ -56,7 +54,7 @@ export default function Main() {
 
     return (
         <main>
-            <TestRecipeForm />
+
             <form action={addIngredient} className="add-ingredient-form">
                 <input
                     type="text"
