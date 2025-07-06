@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 60px;
+    top: 15px;
+    left: 120px;
+    right: 120px;
+    padding: 0 20px;
+    backdrop-filter: blur(4px);
+    background-color: rgba(39, 41, 44, 0.6);
+    border-radius: 100px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.nav-logo {
+    width: 45px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+header li {
+    margin-left: 3em;
+    font-size: 1.1rem;
+}
+
+footer {
+    margin-top: 100px;
+}

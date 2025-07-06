@@ -1,0 +1,29 @@
+1. What do props help us accomplish?
+    They allow us reuse elements and gen  erate instances based on the variable value, so that we didn't have to hardcode everything ourselves
+
+
+2. How do you pass a prop into a component?
+    - As an parameter to a function. Once declared in it's separate file of App.jsx, make it take the props as arguments, and reuses the component with whatever value the props brings in.
+
+
+
+3. Can I pass a custom prop (e.g. `blahblahblah={true}`) to a native
+   DOM element? (e.g. <div blahblahblah={true}>) Why or why not?
+   
+    - Not to the native dom, because it has some specified atributes it can read and the other stuff gets ignored, but we can do that when creating elements in react, props can be whatever name we call it.
+
+4. How do I receive props in a component?
+function Navbar(props) {
+    return (
+        <header>
+            <h1>{props.name}</h1>
+        </header>
+    )
+}
+
+
+5. What data type is `props` when the component receives it?
+    - It is an object with key-value pairs. We operate with the key and it will be replaced with the value by the computer.
+
+
+    

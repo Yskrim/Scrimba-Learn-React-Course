@@ -1,0 +1,61 @@
+body{
+    font-family: Inter;
+    background-color: rgb(41, 45, 52);
+    color: white;
+    margin: 0;
+    padding-top: 110px;
+}
+
+header{
+    padding: 20px 30px;
+    background-color: rgb(33, 34, 41);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+nav img {
+    height: 24px;
+    margin-right: 6px;
+}
+nav p {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: rgb(130, 215, 247
+    );
+}
+
+main {
+    padding: 0px 0px 0px 30px;
+}
+main img {
+    height: 300px;
+}
+
+main .content  {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    padding: 20px;
+    flex: 1;
+}
+
+li {
+    font-size: 14px;
+    margin: 10px 0px;
+}
+li::marker {
+    color:  rgb(130, 215, 247);
+    font-size: 20px;
+}
