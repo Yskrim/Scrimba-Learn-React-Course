@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter;
+    background-color: #172554;
+    color: white;
+    margin: 0;
+    padding: 2rem;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: 50ms ease;
+}
+button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+button:active {
+    transform: translateY(1px);
+    opacity: 1;
+
+}
+
+h1 {
+    text-align: center;
+}
