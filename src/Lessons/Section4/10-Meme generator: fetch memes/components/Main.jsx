@@ -29,10 +29,18 @@ export default function Main() {
     React.useEffect(() => {
         fetch("https://api.imgflip.com/get_memes")
             .then(res => res.json())
-            .then(console.log(Memes))
-            .then(data => setMemes(data.data.memes))
-            .then(console.log(Memes))
-    }, [])
+            .then(data => {
+                setMemes(data.data.memes)
+                data.data.memes.forEach(meme => console.log(meme.id + " " + meme.url))
+            })
+        }, [])
+        
+
+    //     useEffect(() => {
+    //     const res = await fetch("https://api.imgflip.com/get_memes")
+    //     const data = await res.json()
+    //     setAllMemes(data.data.memes)
+    // }, [])
     
     
     function handleChange(event) {
