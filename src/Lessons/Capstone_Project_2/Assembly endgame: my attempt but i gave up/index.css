@@ -92,14 +92,14 @@ section.game-status > p {
 }
 
 
-/* guessedWord */
+/* currentWord */
 
-.guessedWord{
+.currentWord{
     display: flex;
     gap: 2px;
 }
 
-.guessedWord > button {
+.currentWord > button {
     width: 40px;
     height: 40px;
     background-color: #323232;
@@ -169,4 +169,28 @@ section.game-status > p {
 
 .dead {
     opacity: 0.3;
+}
+
+button.new-game {
+    background-color: #11B5E5;
+    border: 1px solid #D7D7D7;
+    border-radius: 4px;
+    width: 225px;
+    height: 40px;
+    padding: 6px 12px;
+    display: block;
+    margin-inline: auto;
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+}
+
+button.new-game:hover {
+    scale: 1.1;
+    transform: translateY(-2px);
+}
+
+button.new-game:active {
+    scale: 0.95;
+    transform: translateY(2px);
+    opacity: 0.9;
 }
